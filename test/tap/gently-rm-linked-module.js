@@ -1,11 +1,12 @@
+var common = require('../common-tap.js')
+common.skipIfWindows("symlinks can't be made on windows by ordinary users")
+
 var basename = require('path').basename
 var resolve = require('path').resolve
 var fs = require('graceful-fs')
 var test = require('tap').test
 var mkdirp = require('mkdirp')
 var rimraf = require('rimraf')
-
-var common = require('../common-tap.js')
 
 var base = resolve(__dirname, basename(__filename, '.js'))
 var pkg = resolve(base, 'gently-rm-linked')
